@@ -1,0 +1,13 @@
+#notebook-container {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+#homelink-container {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#homelink {
+	color: "#000"
+}
