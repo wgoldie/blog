@@ -8,6 +8,11 @@
 	text-align: center;
 }
 
+#contact-container {
+	margin: 1em auto;
+	text-align: center;
+}
+
 #homelink {
 	color: "#000"
 }

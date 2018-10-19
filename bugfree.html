@@ -13119,6 +13119,13 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Learning-hides-bugs">Learning hides bugs<a class="anchor-link" href="#Learning-hides-bugs">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>I’ve got an assertion to make. Let me give it a try:</p>
 
 </div>
@@ -13127,7 +13134,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>“It’s difficult to write bug-free machine learning code.”</em></p>
+<h3 id="&#8220;It&#8217;s-difficult-to-write-bug-free-machine-learning-code.&#8221;"><em>&#8220;It&#8217;s difficult to write bug-free machine learning code.&#8221;</em><a class="anchor-link" href="#&#8220;It&#8217;s-difficult-to-write-bug-free-machine-learning-code.&#8221;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That’s a bit of a platitude. There are plenty of bugs one could encounter in ML code: misaligned tensors, floating point error explosion, improper dataset segmentation… the list goes on. None of these seem to be a uniquely difficult class of bug - harder to find and fix than those we might find in a program like a webserver or syntax parser. Even the tricky problems around parallel processing or offloading computation to GPUs aren’t much harder than what you can find with device drivers and multithreading elsewhere. There is the argument that ML has some very difficult algorithms to understand correctly, but I’ll throw that in a bin labeled “Computer Science” and ignore it for this analysis. So what is my assertion about - giving me the benefit of the doubt here, and assuming that I actually have something worthwhile to say?</p>
 
 </div>
 </div>
@@ -13135,17 +13149,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>That’s a bit of a platitude. There are plenty of bugs one could encounter in ML code: misaligned tensors, floating point error explosion, improper dataset segmentation… the list goes on. None of these seem to be a uniquely difficult class of bug - harder to find and fix than those we might find in a program like a webserver or syntax parser. Even the tricky problems around parallel processing or offloading computation to GPUs aren’t much harder than what you can find with device drivers and multithreading elsewhere. There is the argument that ML has some very difficult algorithms to understand correctly, but I’ll throw that in the bin of “Computer Science” and ignore it for this analysis. So what is my assertion about - giving me the benefit of the doubt here, and assuming that I actually have something worthwhile to say?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Another whack at stating my little thesis:</p>
-<p><em>“The failure modes of machine learning make bug free code difficult to write.”</em></p>
-
+<p>Another whack at stating this little thesis:</p>
+<h3 id="&#8220;The-failure-modes-of-machine-learning-make-bug-free-code-difficult-to-write.&#8221;"><em>&#8220;The failure modes of machine learning make bug free code difficult to write.&#8221;</em><a class="anchor-link" href="#&#8220;The-failure-modes-of-machine-learning-make-bug-free-code-difficult-to-write.&#8221;">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13155,7 +13160,7 @@ div#notebook {
 <p>Okay, this is a bit better, but vague. What are the failure modes of machine learning programs? 
 In particular, we want to know what the unique failure modes are. 
 At one of the spectrum, we have coding problems like tensor misalignment, or filling up our device memory and getting a driver error. 
-As we agreed earlier, these aren’t meaningfully unique to machine learning programs. And in fact, the failure modes for these problems are pretty good, in the sense that they help us fix the bugs. When a tensor is misaligned, we get an exception and the program stops. We can debug the cause and fix it. When the GPU starts filling up, we can analyze how much data we’re putting on it, and try to lower our batch size or unrolled model size.</p>
+As we agreed earlier, these aren’t meaningfully unique to machine learning programs. And in fact, the failure modes for these problems are pretty good, in the sense that they help us fix the bugs. When a tensor is misaligned, we get an exception and the program stops. We can debug the cause and fix it. When the GPU starts filling up, we can analyze how much data we’re putting on it, and try to lower our batch size or unrolled model size. It's not difficult to write code free of these bugs (though it is, at times, exhausting).</p>
 
 </div>
 </div>
@@ -13163,7 +13168,7 @@ As we agreed earlier, these aren’t meaningfully unique to machine learning pro
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We also have problems like statistical bias, and poorly selected or optimized algorithms that take too long to run. These sometimes have good failure cases - if our algorithm is slow, we can analyze it with profiling tools, look at the literature for more appropriate alternative algorithms, and so on. Statistical bias is harder - in some cases, we can examine, manually or statistically, the outputs of our models for characteristic bias. In other cases, the possibility of indiscernible bias is arguably a fundamental limitation for the appropriate applications of machine learning. However, I’m also going to throw this problem, for the course of this article, in the bucket labeled “<del>Computer Science</del>Computer Science and Statistics.” These aren’t coding problems, and not what I’m trying to assert something about right now.</p>
+<p>We also have problems like statistical bias, and poorly selected or optimized algorithms that take too long to run. These sometimes have good failure cases - if our algorithm is slow, we can analyze it with profiling tools, look at the literature for more appropriate alternative algorithms, and so on. Statistical bias is harder - in some cases, we can examine, manually or statistically, the outputs of our models for characteristic bias. In other cases, the possibility of indiscernible bias is arguably a fundamental limitation for the appropriate applications of machine learning. However, I’m also going to throw this problem, for the course of this article, in the bucket labeled “<del>Computer Science</del>Computer Science and Statistics.” These aren’t coding problems, and not what I’m trying to assert something about right now <a href="#[1]">[1]</a>.</p>
 
 </div>
 </div>
@@ -13189,7 +13194,7 @@ I claim that this kind of failure is somewhat unique to machine learning code.</
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The failure mode is “soft.” The bug does not make itself known. The cost of the bug is quantitative, not qualitative. There are other quantitative bugs. Performance bugs are far more accessible to analysis, such as through profiling and looking for hot spots. Bugs in floating point and algebra libraries are similar, but the output states of these programs are well-defined.</p>
+<p>The failure mode is “soft.” The bug does not make itself known. The impact of the bug is quantitative, not qualitative. There are, to be fair, other quantitative bugs. Performance bugs in non-learning algorithms are quantitative, but also quite accessible to analysis, such as through profiling and program structure analysis. Furthermore, the performance topology of a given non-learning algorithm is often well-defined, and we can reasonably expect relatively tight bounds on the performance of many non-learning algorithms.</p>
 
 </div>
 </div>
@@ -13197,7 +13202,7 @@ I claim that this kind of failure is somewhat unique to machine learning code.</
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The notion of a model implementation’s correctness is not well defined. Often, it is completely ad-hoc, and exists only in the author’s mind. And it is hard to analyze the loss performance of most machine learning models in the way that we can analyze the hot spots and other speed or memory performance characteristics of programs themselves. There are ways of doing this - looking at learned activations and descent profiles and so on - but they are not formalized or common.</p>
+<p>Bugs that produce higher-than-optimal error in floating point and linear algebra libraries are qualitative, often similar to (and indeed, often the causes of) bugs in learning algorithms. Even this notion of performance, however, is analytically tractable: the accuracy numerical programs is an entire field with powerful tools of analysis and formalization. The performance of learning algorithms is not so easily predicted.</p>
 
 </div>
 </div>
@@ -13245,7 +13250,7 @@ I claim that this kind of failure is somewhat unique to machine learning code.</
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Consider a toy problem that consists of computing an XOR and performing a linear regression. The loss is a weighted sum of the two task-specific losses. We will model the problem with a neural network that contains one hidden layer, using a nonlinear activation. When we forget the activation, our model is linearized, and cannot learn an XOR, but still descends and minimizes one component of the loss. When we correctly implement the specified model, the loss after training will be lower than that for the incorrect model. However, there was never any indication during training the model without an activiation that it was not correct. The model failed silently. If this was not a toy problem, and the loss was more opaque, we might never know that the model was underperforming.</p>
+<p>Consider a toy problem that consists of computing an XOR and performing a linear regression. The loss is a weighted sum of the two task-specific losses. We will model the problem with a neural network that contains one hidden layer, using a nonlinear activation. When we forget to implement the activation, our model is linearized, and cannot learn an XOR, but still descends and minimizes one component of the loss. When we correctly implement the specified model, the loss after training will be lower than that for the incorrect model. However, there was never any indication during training the model without an activation that the model was not correct. The model failed silently.</p>
 
 </div>
 </div>
@@ -13253,7 +13258,8 @@ I claim that this kind of failure is somewhat unique to machine learning code.</
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The second dynamic is the lack of strong expectations around the performance of machine learning techniques. Consider how many papers introduce techniques with <a href="https://arxiv.org/search/advanced?advanced=&amp;terms-0-operator=AND&amp;terms-0-term=%22the+unreasonable+effectiveness+of%22&amp;terms-0-field=all&amp;classification-computer_science=y&amp;classification-physics_archives=all&amp;date-filter_by=all_dates&amp;date-year=&amp;date-from_date=&amp;date-to_date=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;size=50&amp;order=-announced_date_first">"unexpected" performance</a>. We have a case of practice outrunning theory. In general, it is difficult, if not impossible, to estimate the performance a given model will achieve on a given task. For this reason, we are unaware when a model is not living up to its performance potential. Not only can bugs be silent, they can be invisible.</p>
+<p>The second dynamic of the two I mentioned earlier, and the one exposed by this toy problem, is the lack of strong expectations around the performance of machine learning techniques. If this was not a toy problem, and the loss was more opaque, we might never know that the model was underperforming.</p>
+<p>Consider how many papers introduce techniques with <a href="https://arxiv.org/search/advanced?advanced=&amp;terms-0-operator=AND&amp;terms-0-term=%22the+unreasonable+effectiveness+of%22&amp;terms-0-field=all&amp;classification-computer_science=y&amp;classification-physics_archives=all&amp;date-filter_by=all_dates&amp;date-year=&amp;date-from_date=&amp;date-to_date=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;size=50&amp;order=-announced_date_first">"unexpected" performance</a>. We may have a case of practice outrunning theory. In general, it is difficult, if not impossible, to estimate the performance a given model will achieve on a given task. For this reason, we are unaware when a model is not living up to its performance potential. Not only can bugs be silent, they can be invisible.</p>
 
 </div>
 </div>
@@ -13261,7 +13267,7 @@ I claim that this kind of failure is somewhat unique to machine learning code.</
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The clearest statement I can make of these ideas is: <em>"Gradient descent, when applied to models with unclear performance properties, tends to mask bugs in implementation code."</em></p>
+<p>In sum effect, it is very hard to analyze the loss performance of most machine learning models in the way that we can analyze the hot spots and other speed or memory performance characteristics of more formalizable programs. There are ways of doing this - looking at learned activations and training loss profiles and so on - but they are not formalized or reliable.</p>
 
 </div>
 </div>
@@ -13269,7 +13275,23 @@ I claim that this kind of failure is somewhat unique to machine learning code.</
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Okay, I've made my complaint. Now what do we do about this?</p>
+<p>The clearest statement I can make of these ideas is:</p>
+<h3 id="&quot;Gradient-descent,-when-applied-to-models-with-unclear-performance-properties,-tends-to-mask-bugs-in-implementation-code.&quot;"><em>"Gradient descent, when applied to models with unclear performance properties, tends to mask bugs in implementation code."</em><a class="anchor-link" href="#&quot;Gradient-descent,-when-applied-to-models-with-unclear-performance-properties,-tends-to-mask-bugs-in-implementation-code.&quot;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see this as the cousin of a <a href="https://arxiv.org/abs/1803.03453v1">well-established tendency of learning algorithms</a> to identify and exploit bugs or loopholes in their experimental environments <a href="#[2]">[2]</a>. In addition to exploiting bugs, learning algorithms can perform well despite them, though potentially not as well as they could unburdened.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Okay, I've made my complaint. Now what do we do about this? The problem doesn't seem particularly tractable. We have a notion of how a model functions and sometimes a theory as to why it functions well - based on information theory, probability, biomimicry, etc - and we have a implementation of it, to some degree of correctness, that may function in very different ways and may achieve the performance it does for very different reasons than our theory. How do we reduce the last two possibilities <a href="#[3]">[3]</a>?</p>
 
 </div>
 </div>
@@ -13278,6 +13300,13 @@ I claim that this kind of failure is somewhat unique to machine learning code.</
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>One strategy is to strengthen the ties between theoretical specification and practical implementation. This could take the form of libraries to generate human-readable representations of models from code, or even symbolic equations. This output could be compared to model specs or papers to verify correctness.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>This isn't a trivial task, especially in complex training setups involving multiple models and dynamic model structures like RNNs. However, incremental progress is possible. Of course, these libraries themselves could be incorrectly implemented, but we decrease the attack surface for bugs with each layer of verification (at the cost of productivity).</p>
 
 </div>
@@ -13294,27 +13323,49 @@ I claim that this kind of failure is somewhat unique to machine learning code.</
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>My last suggestion is less a scientific or programming technique than a societal one: run a bakeoff. If several individuals or teams attempt to implement a model correctly in isolation, there is a chance that each of them can discover issues with one anothers' models.</p>
+<p>My last suggestion is less a scientific or programming technique than an organizational one: run a bakeoff. If several individuals or teams attempt to implement a model correctly in isolation, there is a chance that each of them can discover issues with another's model.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Notes">Notes<a class="anchor-link" href="#Notes">&#182;</a></h4>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h6 id="[1]">[1]<a class="anchor-link" href="#[1]">&#182;</a></h6><p>I do not, however, think that bias is a problem that anyone who works in or with learning algorithms can ignore. Bias is not "somebody else's problem". Everyone involved in offloading decision-making to opaque statistical engines needs to responsibly and sincerely grapple with the societal implications of that process. Even if you think your use case is benign, it may not be: consider how even a recommender system can amplify socioeconomic disparities along racial, sexual, or other inappropriate decision boundaries.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h6 id="[2]">[2]<a class="anchor-link" href="#[2]">&#182;</a></h6><p>This exploitative behavior is perhaps most known to occur in genetic algorithms, but I have personally observed it in SGD training as well - I suspect it is simply the complexity of simulations that GA algorithms inhabit (in contrast to the simplicity of most SGD loss functions) that exacerbates this tendency, and that SGD-driven RL in particular will experience it to the same extent.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h6 id="[3]">[3]<a class="anchor-link" href="#[3]">&#182;</a></h6><p>We cannot hope to eliminate them - to do so we would need complete confidence in the algorithms and systems underlying our model implementation's computation. The customary reference to "Reflections on Trusting Trust" applies - with the note that we are not worried about a deliberate attacker here but simply the possibility human error at all levels of the stack.</p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
 </body>
+<div id="contact-container">
+  The sources of this blog are available at <a href="https://github.com/wgoldie/blog">Github</a>.
+  If you have any comments, corrections, or questions, please <a href="mailto:wgoldie@gmail.com">get in touch</a> with me - I'd love to chat.
+</div>
 
 
  
